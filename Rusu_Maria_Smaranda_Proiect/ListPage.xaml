@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Rusu_Maria_Smaranda_Proiect.ListPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+
+    <StackLayout Margin="20" BackgroundColor="Beige">
+        <Editor Placeholder="Enter the name of the film"
+                Text="{Binding Description}"
+                HeightRequest="50"/>
+
+        <Editor Placeholder="Enter the year of the film"
+                Text="{Binding Year}"
+                HeightRequest="50"/>
+
+        <Button Text="Add/Choose category of the film"
+                BackgroundColor="DeepSkyBlue"
+                Clicked="OnChooseButtonClicked"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Save"
+                   
+                    BackgroundColor="LightGray"
+                    Clicked="OnSaveButtonClicked"/>
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    
+                    Clicked="OnDeleteButtonClicked"/>
+
+            <ListView Grid.Row="1" Grid.ColumnSpan="2" x:Name="listView"
+                                                         Margin="20">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+    </StackLayout>
+</ContentPage>
